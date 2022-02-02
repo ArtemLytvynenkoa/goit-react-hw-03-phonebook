@@ -49,8 +49,10 @@ class App extends Component {
     }))
   }
 
-  componentDidUpdate() {
-    localStorage.setItem("contacts", JSON.stringify(this.state.contacts))
+  componentDidUpdate(prevProps, prevState) {
+    if (this.state.contacts.length !== prevState.contacts.length) {
+      localStorage.setItem("contacts", JSON.stringify(this.state.contacts))
+    }  
   }
 
   render() {
