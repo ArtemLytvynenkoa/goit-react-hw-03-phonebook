@@ -12,6 +12,18 @@ class App extends Component {
     contacts: [],
     filter: ''
   }
+  
+  componentDidUpdate(prevProps, prevState) {
+    if (this.state.contacts.length !== prevState.contacts.length) {
+      localStorage.setItem("contacts", JSON.stringify(this.state.contacts))
+    }  
+  }
+
+  componentDidMount() {
+    this.setState({
+      contacts: JSON.parse(localStorage.getItem("contacts")) ?? []
+    })
+  }
 
   formSubmitHandler = data => {
     const { contacts } = this.state;
@@ -47,18 +59,6 @@ class App extends Component {
     this.setState(prevState => ({
       contacts: prevState.contacts.filter(contact => contact.id !== contactId)
     }))
-  }
-
-  componentDidUpdate(prevProps, prevState) {
-    if (this.state.contacts.length !== prevState.contacts.length) {
-      localStorage.setItem("contacts", JSON.stringify(this.state.contacts))
-    }  
-  }
-
-  componentDidMount() {
-    this.setState({
-      contacts: JSON.parse(localStorage.getItem("contacts")) ?? []
-    })
   }
 
   render() {
