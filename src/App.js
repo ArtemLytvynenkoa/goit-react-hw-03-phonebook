@@ -9,7 +9,7 @@ import Notification from "./Components/Notification";
 class App extends Component {
 
   state = {
-    contacts: JSON.parse(localStorage.getItem("contacts")) || [],
+    contacts: [],
     filter: ''
   }
 
@@ -53,6 +53,12 @@ class App extends Component {
     if (this.state.contacts.length !== prevState.contacts.length) {
       localStorage.setItem("contacts", JSON.stringify(this.state.contacts))
     }  
+  }
+
+  componentDidMount() {
+    this.setState({
+      contacts: JSON.parse(localStorage.getItem("contacts"))
+    })
   }
 
   render() {
