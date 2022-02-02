@@ -1,0 +1,28 @@
+.item {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    background-color: wheat;
+    color: crimson;
+    padding: 10px;
+    border: solid 5px hotpink;
+    border-radius: 10px;
+}
+
+.item:not(:last-child) {
+    margin-bottom: 10px;
+}
+
+.link {
+    margin-left: 10px;
+    text-decoration: none;
+    color: crimson;
+}
+
+.button {
+    margin-left: 20px;
+    padding: 10px;
+    border-radius: 50%;
+    border-color: hotpink;
+    background-color: lavender;
+}
