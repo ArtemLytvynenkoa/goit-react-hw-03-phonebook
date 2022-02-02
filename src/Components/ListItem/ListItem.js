@@ -1,9 +1,10 @@
 import PropTypes from "prop-types";
+import { string } from "prop-types";
 import s from "./ListItem.module.css";
 
 function ListItem({name, number, deleteContact, id}) {
     return (
-        <li className={s.item}>
+        <li className={s.item} >
             <p>{name}</p>
             <a className={s.link} href={`tel:+${number.split('-').join('')}`}>{number}</a>
             <button
@@ -13,7 +14,7 @@ function ListItem({name, number, deleteContact, id}) {
             >
                 Delete
             </button>
-        </li>
+        </li >
     )
 }
 
