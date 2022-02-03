@@ -29,7 +29,7 @@ class App extends Component {
     const { contacts } = this.state;
     const checkSameName =
       contacts.some(({ name, number }) =>
-        name === data.name && number === data.number);
+        name.toLowerCase() === data.name.toLowerCase() && number === data.number);
     
     const message = `${data.name} with this phone number - ${data.number} are already in contacts!`;
 

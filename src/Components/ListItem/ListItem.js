@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import { string } from "prop-types";
 import s from "./ListItem.module.css";
 
-function ListItem({name, number, deleteContact, id}) {
+function ListItem({name, number, deleteContact }) {
     return (
         <li className={s.item} >
             <p>{name}</p>
@@ -10,7 +10,7 @@ function ListItem({name, number, deleteContact, id}) {
             <button
                 className={s.button}
                 type="button"
-                onClick={() => deleteContact(id)}
+                onClick={deleteContact}
             >
                 Delete
             </button>
@@ -21,7 +21,6 @@ function ListItem({name, number, deleteContact, id}) {
 ListItem.propTypes = {
     name: PropTypes.string.isRequired,
     number: PropTypes.string.isRequired,
-    id: PropTypes.string.isRequired,
     deleteContact: PropTypes.func.isRequired,
 }
 

@@ -10,8 +10,7 @@ function ContactsList({ contactsBook, onClickDelete }) {
                     key={id}
                     name={name}
                     number={number}
-                    id={id}
-                    deleteContact={onClickDelete}
+                    deleteContact={() => onClickDelete(id)}
                 />
             ))}
             
