@@ -62,7 +62,7 @@ class App extends Component {
   }
 
   render() {
-    const { filter } = this.state;
+    const { filter, contacts } = this.state;
     
     const visibleContacts = this.getVisibleContacts();
 
@@ -73,7 +73,8 @@ class App extends Component {
         </Section>
 
         <Section title="Contacts">
-          {visibleContacts.length === 0  ? 
+          
+          {contacts.length === 0  ? 
             <Notification message="Contacts book is empty!" /> :
             <>
               <ContactsFilter
@@ -85,6 +86,7 @@ class App extends Component {
                 onClickDelete={this.deleteContact}
               /> 
             </>
+            
           }
            
         </Section>
